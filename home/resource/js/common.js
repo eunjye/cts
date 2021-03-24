@@ -1,6 +1,6 @@
 ;(function ($, win, doc, undefined) {
 	
-	var namespace = 'GC';
+	var namespace = 'cts';
 
 	win[namespace] = {
 		status: {
@@ -49,7 +49,7 @@
 		navLoad: function(){
 			(function () {
 				return new Promise(function(resolve, reject) {
-					$.get('/gcart/home/include/header.html', function(response) {
+					$.get('../include/header.html', function(response) {
 						if (response) {
 							resolve(response);
 						}
@@ -70,7 +70,7 @@
 		footerLoad: function(){
 			(function () {
 				return new Promise(function(resolve, reject) {
-					$.get('/gcart/home/include/footer.html', function(response) {
+					$.get('../include/footer.html', function(response) {
 						if (response) {
 							resolve(response);
 						}
@@ -86,7 +86,7 @@
 		nav: {
 			hoverMenu: function(){
 				var $header = $('.header-area');
-				var $links = $header.find('.gnb-area a');
+				var $links = $header.find('.gnb-area .nav-d1 a');
 				var flag = {};
 
 				$links
@@ -140,8 +140,9 @@
 					infinite: true,
 					speed: 400,
 					autoplay: true,
-					autoplaySpeed: 5000,
-					arrows: false,
+					autoplaySpeed: 8000,
+					prevArrow: $('.slider-visual .slick-prev'),
+      		nextArrow: $('.slider-visual .slick-next'),
 					pauseOnHover: false,
 					dots: true,
 					appendDots: '.slider-pagination',
@@ -166,24 +167,24 @@
 				marker.setMap(map);
 			}
 		},
-		cookieControl: {
-			setCookie: function ( name, value, expiredays ) {
-				var todayDate = new Date();
-				todayDate.setDate( todayDate.getDate() + expiredays );
-				document.cookie = name + '=' + escape( value ) + '; path=/; expires=' + todayDate.toGMTString() + ';'
-				console.log(document.cookie);
-			},
-			isHasCookie: function () {
-				var cookiedata = document.cookie;
-				console.log(cookiedata);
-				if ( cookiedata.indexOf('todayCookie=done') < 0 ){
-						return false;
-				}
-				else {
-						return true;
-				}
-			}
-		},
+		// cookieControl: {
+		// 	setCookie: function ( name, value, expiredays ) {
+		// 		var todayDate = new Date();
+		// 		todayDate.setDate( todayDate.getDate() + expiredays );
+		// 		document.cookie = name + '=' + escape( value ) + '; path=/; expires=' + todayDate.toGMTString() + ';'
+		// 		console.log(document.cookie);
+		// 	},
+		// 	isHasCookie: function () {
+		// 		var cookiedata = document.cookie;
+		// 		console.log(cookiedata);
+		// 		if ( cookiedata.indexOf('todayCookie=done') < 0 ){
+		// 				return false;
+		// 		}
+		// 		else {
+		// 				return true;
+		// 		}
+		// 	}
+		// },
 		init: function(){
 
 			$(win).off('.'+namespace);
