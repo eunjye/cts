@@ -115,7 +115,26 @@
 	.app-list > li {margin:10px 5px; zoom:0.8}
 }
 @media (max-width:765px) {
-	
+	.login-wrap { padding:25px 25px 50px; }
+	.login-area { width:auto; height:auto; min-height:0; position:static; margin:0 auto; overflow:visible; }
+	.login-area .login-inner { position:relative; top:auto; left:auto; transform:none; width:100%; padding:40px 25px; }
+	.login-util .chk-item { float:none; width:100%; text-align:left; }
+	.login-util .links { float:none; width:100%; margin-top:10px; text-align:left; }
+	.login-tit { font-size:26px; }
+	.login-form { margin:30px 0 0;}
+	.login-area .inp { height:50px; }
+	.login-area .copyright { font-size:12px; }
+	.other-login { margin-top:30px; padding-top:30px; }
+	.other-login .or { font-size:12px; padding:0 10px; }
+
+	.inp { height:50px; min-height:50px; line-height:52px; }
+
+	.btn-base.size-xl { height:45px; line-height:41px; font-size:14px; }
+
+	.lb-rdo, .lb-chk { font-size:12px; }
+	.lb-chk:before { zoom:0.8; }
+	.login-util .links a { font-size:12px; }
+
 }
 
 /* mobile */
