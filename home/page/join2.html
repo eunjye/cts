@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta name="description" content="CTS 뉴욕방송 홈페이지">
+	<meta name="keywords" content="CTS, 뉴욕방송, CTS 뉴욕방송, CTS뉴욕방송">
+
+	<title>CTS 뉴욕방송</title>
+
+	<link rel="stylesheet" href="../resource/css/app.css">
+
+	<script src="../resource/js/lib/jquery-1.12.4.min.js"></script>
+	<script src="../resource/js/lib/bluebird.min.js"></script>
+	<script src="../resource/js/lib/slick.min.js"></script>
+	<script src="../resource/js/common.js"></script>
+</head>
+<body>
+	<main id="wrap" class="login-wrap">
+		<div class="login-area">
+            <div class="login-logo">
+                <img src="../resource/img/logo_login.jpg" alt="CTS AMERICA 기독교TV 뉴욕방송">
+            </div>
+			<div class="login-inner">
+				<p class="login-desc">
+					<span>HOME</span>
+					<span class="current">JOIN US</span>
+				</p>
+				<h2 class="login-tit">회원가입</h2>
+
+				<fieldset class="login-form type-join">
+					<legend>회원가입 정보</legend>
+                    
+                    <div class="form-area">
+                        <span class="lb-form"><label for="inpID">아이디</label></span>
+                        <div class="form-item">
+					        <input type="text" class="inp" id="inpID">
+                        </div>
+                    </div>
+                    
+                    <div class="form-area">
+                        <span class="lb-form"><label for="inpPW1">비밀번호</label></span>
+                        <div class="form-item">
+					        <input type="password" class="inp" id="inpPW1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-area mgb-l">
+                        <span class="lb-form"><label for="inpPW2">비밀번호 재확인</label></span>
+                        <div class="form-item">
+					        <input type="password" class="inp" id="inpPW2">
+                        </div>
+                    </div>
+                    
+                    <div class="form-area">
+                        <span class="lb-form">
+                            <label for="">이름</label>
+                            <span class="txt-require">*필수정보입니다</span>
+                        </span>
+                        <div class="form-item">
+					        <input type="text" class="inp" id="inpID">
+                        </div>
+                    </div>
+                    
+                    <div class="form-area type-birth">
+                        <span class="lb-form"><label for="">생년월일</label></span>
+                        <div class="form-item">
+					        <input type="tel" class="inp" id="inpID" placeholder="년(4자)">
+					        <select class="selectbox">
+                                <option hidden select>월</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select>
+					        <input type="tel" class="inp" id="inpID" placeholder="일">
+                        </div>
+                    </div>
+
+                    <div class="form-area">
+                        <span class="lb-form"><label for="">성별</label></span>
+                        <div class="form-item">
+					        <select class="selectbox">
+                                <option hidden select>선택</option>
+                                <option>남</option>
+                                <option>여</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-area">
+                        <span class="lb-form">
+                            <label for="">본인 확인 이메일</label>
+                            <span class="sub">(선택)</span>
+                        </span>
+                        <div class="form-item">
+					        <input type="email" class="inp" id="inpID">
+                        </div>
+                    </div>
+
+                    <div class="form-area type-tel">
+                        <span class="lb-form"><label for="">휴대전화</label></span>
+                        <div class="form-item">
+                            <div class="form-inp">
+                                <select class="selectbox">
+                                    <option select>대한민국 +82</option>
+                                    <option>대한민국 +82</option>
+                                    <option>대한민국 +82</option>
+                                </select>
+                            </div>
+                            <div class="form-inp telnum">
+                                <span class="inp-area">
+                                    <input type="tel" class="inp" id="inpID" placeholder="전화번호 입력">
+                                    <span class="count">00:00</span>
+                                </span>
+                                <!-- 인증번호 받기 버튼 클릭 전 
+                                <span class="btns">
+                                    <button type="button" class="btn-base primary size-l"><span>인증번호 받기</span></button>
+                                </span>
+                                -->
+
+                                <!-- 인증번호 받기 버튼 클릭 후 -->
+                                <span class="btns ing">
+                                    <button type="button" class="btn-base sub size-l"><span>시간연장</span></button>
+                                    <button type="button" class="btn-base primary size-l"><span>다시받기</span></button>                                    
+                                </span>
+                            </div>
+                            <div class="form-inp">
+                                <input type="tel" class="inp" id="inpID" placeholder="인증번호를 입력하세요" readonly>
+                            </div>
+                        </div>
+                    </div>
+				</fieldset>
+
+				<div class="btn-area full">
+					<button type="button" class="btn-base size-xl primary"><span>가입하기</span></button>
+				</div>
+
+				<address class="copyright">Copyright ⓒ CTS뉴욕지사. All rights reserved.</address>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

@@ -122,14 +122,15 @@
 	.login-util .links { float:none; width:100%; margin-top:10px; text-align:left; }
 	.login-tit { font-size:26px; }
 	.login-form { margin:30px 0 0;}
-	.login-area .inp { height:50px; }
 	.login-area .copyright { font-size:12px; }
 	.other-login { margin-top:30px; padding-top:30px; }
 	.other-login .or { font-size:12px; padding:0 10px; }
 
-	.inp { height:50px; min-height:50px; line-height:52px; }
+	.inp { height:40px; min-height:40px; line-height:42px; }
+	.selectbox { height:40px; min-height:40px; }
 
 	.btn-base.size-xl { height:45px; line-height:41px; font-size:14px; }
+	.btn-base.size-l { height:40px; line-height:40px; }
 
 	.lb-rdo, .lb-chk { font-size:12px; }
 	.lb-chk:before { zoom:0.8; }
@@ -139,6 +140,11 @@
 
 /* mobile */
 @media (max-width:500px) {
+	.login-logo { margin-bottom:40px; zoom:0.8}
+	.form-area.type-tel .telnum { white-space:normal;}
+	.form-area.type-tel .telnum .inp-area { width:100%; padding:0; }
+	.form-area.type-tel .telnum .btns { width:100%; margin-top:15px; }
+	.form-area.type-tel .telnum .inp-area .count { right:15px; }
 	/* table */
 	.tbl-base th,
 	.tbl-base td { font-size:14px; }
