@@ -30,9 +30,9 @@ body { font-family:'NotoSans', 'Dotum', 'sans-serif'; font-weight:400; font-size
 .btn-area { margin:30px 0 0; font-size:0; }
 .btn-area .btn-base { margin:0 5px; }
 .btn-area.full .btn-base { width:100%; margin:0; }
-.btn-base { z-index:0; display:inline-block; position:relative; height:50px; padding:0 37px; line-height:50px; background:#4272d7; color:#000; font-size:18px; font-weight:500; transition:all .2s ease-in-out; text-decoration:none; color:#fff; }
+.btn-base { z-index:0; display:inline-block; position:relative; height:50px; padding:0 37px; line-height:50px; background:#4272d7; color:#000; font-size:14px; font-weight:500; transition:all .2s ease-in-out; text-decoration:none; color:#fff; }
 .btn-base:hover { background:#3361c5; }
-.btn-base.size-xs { border-radius:13px; height:26px; line-height:28px; font-size:14px; font-weight:400; text-align:center; padding:0 12px; background:#1555de; }
+.btn-base.size-xs { border-radius:13px; height:26px; line-height:24px; font-size:14px; font-weight:400; text-align:center; padding:0 12px; background:#1555de; }
 .btn-base.size-l { height:50px; line-height:46px; font-weight:500; text-align:center; padding:0 12px; }
 .btn-base.size-xl { height:56px; line-height:52px; font-size:16px; font-weight:500; text-align:center; padding:0 12px; }
 .btn-base.primary { background:#0073bd; }
@@ -146,7 +146,7 @@ ul.bul-dot > li { color:#454545; margin-top:8px; padding-left:16px; font-size:18
 .footer-area .links a { font-size:15px; }
 .footer-area .links span + span:before { display:inline-block; vertical-align:middle; width:1px; height:12px; margin:-4px 8px 0; background:#4f525c; content:""; }
 .footer-area .address { margin-top:30px; }
-.footer-area .address > span { display:block; margin-top:8px; font-size:14px; padding-left:30px; background-position:center left; background-size:auto auto; background-repeat:no-repeat; }
+.footer-area .address > span { display:block; margin-top:8px; font-size:14px; padding-left:30px; background-position:3px 0px; background-size:auto auto; background-repeat:no-repeat; }
 .footer-area .address > span:first-child { margin-top:0; }
 .footer-area .address > .location { background-image:url('../img/ico_footer_location.png'); }
 .footer-area .address > .tel { background-image:url('../img/ico_footer_tel.png'); }
