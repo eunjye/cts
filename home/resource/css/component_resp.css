@@ -2,6 +2,16 @@
 
 /* tablet & mobile */
 @media (max-width:1024px) {
+	.breadcrumbs { display:none; }
+	.nav-area { display:none; }
+	.main-area.sub { padding-top:70px;}
+	.visual-area .visual-sub { height:23vw; min-height:200px; font-size:30px; }
+	.sub-area { padding:40px 25px; }
+	.sub-area .article { float:none; width:100%; padding:0; }
+	.sub-tit { font-size:25px; font-weight:700; }
+	.sub-tit-area { margin-bottom:20px; }
+	.sub-area .article-txt { margin-top:20px; }
+
 	/* common */
 	body { font-size:14px; }
 
@@ -31,7 +41,6 @@
 	.tag-new { font-size:12px; }
 
 	/* header */
-	.is-home .header-area { height:70px; }
 	.header-area { height:70px; overflow:visible; }
 	.header-area:after { top:68px; }
 	.header-area .gnb-area { display:block; float:none; position:fixed; padding:70px 0 20px; margin:0; top:0; left:-100%; background:#fff; width:100%; height:100%; transition:all ease-in-out .35s; }
@@ -84,6 +93,7 @@
 	.paging-fraction .current { color:#f79433; }
 
 	/* main : visual */
+	.visual-area { margin-top:70px; }
 	.visual-area.main { margin-top:70px; height:45vh; }
 	.visual-area.main .tit-area { padding:0 30px; top:50%; transform:translateY(-50%); }
 	.visual-area .visual-inner { height:100%; }
@@ -115,6 +125,7 @@
 	.app-list > li {margin:10px 5px; zoom:0.8}
 }
 @media (max-width:765px) {
+
 	.login-wrap { padding:25px 25px 50px; }
 	.login-area { width:auto; height:auto; min-height:0; position:static; margin:0 auto; overflow:visible; }
 	.login-area .login-inner { position:relative; top:auto; left:auto; transform:none; width:100%; padding:40px 25px; }

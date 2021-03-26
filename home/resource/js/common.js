@@ -133,6 +133,125 @@
 
 			}
 		},
+		isBrowser: function(){
+			var agt = navigator.userAgent.toLowerCase(); 
+			if (agt.indexOf("chrome") != -1) return 'Chrome'; 
+			if (agt.indexOf("opera") != -1) return 'Opera'; 
+			if (agt.indexOf("staroffice") != -1) return 'Star Office'; 
+			if (agt.indexOf("webtv") != -1) return 'WebTV'; 
+			if (agt.indexOf("beonex") != -1) return 'Beonex'; 
+			if (agt.indexOf("chimera") != -1) return 'Chimera'; 
+			if (agt.indexOf("netpositive") != -1) return 'NetPositive'; 
+			if (agt.indexOf("phoenix") != -1) return 'Phoenix'; 
+			if (agt.indexOf("firefox") != -1) return 'Firefox'; 
+			if (agt.indexOf("safari") != -1) return 'Safari'; 
+			if (agt.indexOf("skipstone") != -1) return 'SkipStone'; 
+			if (agt.indexOf("netscape") != -1) return 'Netscape'; 
+			if (agt.indexOf("mozilla/5.0") != -1) return 'Mozilla'; 
+			if (agt.indexOf("msie") != -1) { 
+					var rv = -1; 
+				if (navigator.appName == 'Microsoft Internet Explorer') { 
+					var ua = navigator.userAgent; var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})"); 
+				if (re.exec(ua) != null) 
+					rv = parseFloat(RegExp.$1); 
+				} 
+				return 'Internet Explorer '+rv; 
+			} 
+		},
+		acco: {
+			open: function(SPEC){
+				var _spec = $.extend({}, {
+					openOnly: true
+				}, SPEC);
+				var openIndex = _spec.targetIndex;
+				var openOnly = _spec.openOnly;
+				
+				var $acco = _spec.targetAcco || $('.ui-acco');
+				var $item = $acco.children('.acco-item').eq(openIndex);
+				var $tit = $item.children('.acco-tit');
+				var $pnl = $item.children('.acco-pnl');
+
+				if (openOnly) {
+					function accoToggle(){
+						$item.find('.acco-btn').addClass('on');
+						$pnl.stop().slideDown(200, function(){
+							$item.addClass('open');
+						});
+					}
+
+					if (win[namespace].isBrowser().indexOf('Internet Explorer') !== -1
+					 || win[namespace].isBrowser().indexOf('Mozilla') !== -1) {
+						win[namespace].acco.close({
+							noTargetIndex: openIndex,
+							closeBack: accoToggle
+						});
+					} else {
+						win[namespace].acco.close({
+							noTargetIndex: openIndex
+						});
+						accoToggle();
+					}
+				}
+
+			},
+			close: function(SPEC){
+				var _spec = $.extend({}, {
+					targetIndex: null,
+					noTargetIndex: null,
+					closeBack: function(){}
+				}, SPEC);
+				var closeIndex = _spec.targetIndex;
+				var noCloseIndex = _spec.noTargetIndex;
+				
+				var $acco = _spec.targetAcco || $('.ui-acco');
+				var $item = closeIndex === null ? 
+											noCloseIndex === null ?
+												$acco.children('.acco-item') : 
+												$acco.children('.acco-item:not(:eq('+ noCloseIndex +'))') :
+											$acco.children('.acco-item').eq(closeIndex);
+				var $pnl = $item.children('.acco-pnl');
+
+				$item.find('.acco-btn').removeClass('on');
+				$pnl.stop().slideUp(200, function(){
+					$item.removeClass('open');
+					_spec.closeBack();
+				});
+			},
+			set: function(SPEC){
+				var _spec = SPEC || false;
+				var openIndex;
+				if (!!_spec) {
+					openIndex = _spec.openIndex;
+				}
+				
+				var $acco = $('.ui-acco');
+				var $item = $acco.children('.acco-item');
+				var $tit = $acco.children('.acco-tit');
+				var $pnl = $item.children('.acco-pnl');
+
+				$item.each(function(idx, item){
+					$(item).hasClass('open') && $(item).find('.acco-btn').addClass('on');
+				});
+
+				if (openIndex !== undefined) {
+					win[namespace].acco.open({targetIndex: openIndex});
+				}
+			},
+			init: function(SPEC){
+				win[namespace].acco.set(SPEC);
+
+				$(document).off('click.clickAccoBtn').on('click.clickAccoBtn', '.acco-btn', function(){
+					if (!$(this).hasClass('type-link')) {
+						var targetIndex = $('.ui-acco .acco-btn').index($(this));
+						if ($(this).hasClass('on')) {
+							win[namespace].acco.close({targetIndex: targetIndex});
+						} else {
+							win[namespace].acco.open({targetIndex: targetIndex});
+						}
+					}
+				});
+			}
+		},
 		mainSlider: {
 			slide: {},
 			init: function(){
@@ -197,6 +316,8 @@
 				win[namespace].nav.hoverMenu(); // hover evt on nav
 				win[namespace].nav.slidingMenu(); // show/hide evt on nav
 				win[namespace].nav.openDepth2(); // 2depth links evt on nav
+
+				win[namespace].acco.init();
 
 			})
 			$(doc).on('scroll.'+namespace, function(){
