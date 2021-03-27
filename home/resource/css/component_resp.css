@@ -4,7 +4,6 @@
 @media (max-width:1024px) {
 	.breadcrumbs { display:none; }
 	.nav-area { display:none; }
-	.main-area.sub { padding-top:70px;}
 	.visual-area .visual-sub { height:23vw; min-height:200px; font-size:30px; }
 	.sub-area { padding:40px 25px; }
 	.sub-area .article { float:none; width:100%; padding:0; }
@@ -21,6 +20,7 @@
 	.cont-grid { padding:35px 25px; }
 	.cont-inner { margin-top:45px; }
 
+	
 	.btn-area { margin:25px 0 0; }
 
 	/* title */
@@ -42,6 +42,7 @@
 
 	/* header */
 	.header-area { height:70px; overflow:visible; }
+	.header-area .header-inner { height:70px; }
 	.header-area:after { top:68px; }
 	.header-area .gnb-area { display:block; float:none; position:fixed; padding:70px 0 20px; margin:0; top:0; left:-100%; background:#fff; width:100%; height:100%; transition:all ease-in-out .35s; }
 	.header-area.open .gnb-area { left:0; }
@@ -59,7 +60,7 @@
 	.header-util > span { display:inline; }
 	.header-util > span + span:before { }
 
-	.banner-area { display:none; }
+	
 
 	.logo img { width:130px; height:auto; }
 	.gnb-area .nav-d1 a { display:block; height:50px; line-height:52px; padding:0 15px; border-bottom:1px solid #e8e7e7; overflow:hidden; }
@@ -93,8 +94,8 @@
 	.paging-fraction .current { color:#f79433; }
 
 	/* main : visual */
-	.visual-area { margin-top:70px; }
-	.visual-area.main { margin-top:70px; height:45vh; }
+	.visual-area { }
+	.visual-area.main { height:45vh; }
 	.visual-area.main .tit-area { padding:0 30px; top:50%; transform:translateY(-50%); }
 	.visual-area .visual-inner { height:100%; }
 
@@ -125,7 +126,6 @@
 	.app-list > li {margin:10px 5px; zoom:0.8}
 }
 @media (max-width:765px) {
-
 	.login-wrap { padding:25px 25px 50px; }
 	.login-area { width:auto; height:auto; min-height:0; position:static; margin:0 auto; overflow:visible; }
 	.login-area .login-inner { position:relative; top:auto; left:auto; transform:none; width:100%; padding:40px 25px; }
@@ -151,6 +151,14 @@
 
 /* mobile */
 @media (max-width:500px) {
+	.page-util .inner { padding:20px 10px; }
+	.btn-top { zoom:.9;}
+
+	.slider-banner { display:block; }
+	.slider-banner .banner-inner { display:block; }
+	.slider-banner.close .banner-inner { display:none; }
+	.banner-area { display:none; }
+
 	.login-logo { margin-bottom:40px; zoom:0.8}
 	.form-area.type-tel .telnum { white-space:normal;}
 	.form-area.type-tel .telnum .inp-area { width:100%; padding:0; }

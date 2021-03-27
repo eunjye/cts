@@ -6,6 +6,9 @@
 		status: {
 			scrollY: 0,
 			scrollDirection: '',
+			scrollOverElement: function(delta){
+				return win[namespace].status.scrollY > delta ? true : false;
+			},
 			scrollIsHome: function(){
 				return win[namespace].status.scrollY === 0 ? true : false;
 			},
@@ -46,6 +49,59 @@
 				}
 			}
 		},
+		checkBrowserSize: function(){
+			var _winW = $(win).outerWidth();
+			var size = '';
+			
+			if (_winW < 764) {
+				size = 'mobile';
+			} else if (_winW < 1025) {
+				size = 'tablet';
+			} else {
+				size = 'pc';
+			}
+			$('html').attr('data-size', size);
+
+			return size;
+		},
+		isInview: function($el, callback){
+			$.extend({}, {
+				inBack: function() {},
+				outBack: function() {}
+			}, callback)
+			$(doc).on('scroll.'+namespace, function(){
+				if ($el.inView()) {
+					$el.addClass('ui-in');
+				} else {
+					$el.removeClass('ui-in');
+				}
+			});
+		},
+		navFixed: {
+			headerY: 0,
+			beforeY: false,
+			afterY: false,
+			init: function(){
+				$(win).off('scroll.scrollNavFixed').on('scroll.scrollNavFixed', function(){
+					var $header = $('.header-area');
+					var $banner = ($(win).outerWidth() > 500) ? $('.banner-area') : $('.slider-banner')
+					var headerY = $banner.offset().top + $banner.outerHeight();
+					var beforeY = win[namespace].navFixed.beforeY;
+					var afterY = win[namespace].status.scrollOverElement(headerY);
+
+					if (beforeY !== afterY) {
+						
+						if (afterY && !$header.hasClass('fixed')){
+							$header.addClass('fixed');
+						} else {
+							$header.removeClass('fixed');
+						}
+						win[namespace].navFixed.beforeY = afterY;
+					}
+
+				});
+			}
+		},
 		navLoad: function(){
 			(function () {
 				return new Promise(function(resolve, reject) {
@@ -63,6 +119,9 @@
 				win[namespace].nav.slidingMenu(); // show/hide evt on nav
 				win[namespace].nav.openDepth2(); // 2depth links evt on nav
 				
+				if (!$('.banner-area').length) {
+					$('.header-area').addClass('fixed');
+				}
 			}).catch(function(err) {
 				console.error('win.'+namespace+'.navLoad failed!!');
 			});
@@ -121,7 +180,6 @@
 				var $listDepth1 = $header.find('.nav-d1 > li');
 				var $btnDepth1 = $listDepth1.children('a');
 
-				console.log($btnDepth1)
 				$btnDepth1.on('click', function(e){
 					if ($(win).outerWidth() < 1025 && !!$(this).siblings('.nav-d2').length) {
 						var $parentList = $(this).closest('li');
@@ -306,9 +364,14 @@
 		// },
 		init: function(){
 
-			$(win).off('.'+namespace);
+			$(win).off('.'+namespace)
+				.on('resize.'+namespace, function(){
+					win[namespace].checkBrowserSize();
+				});
 
 			$(doc).on('ready.'+namespace, function(){
+				win[namespace].checkBrowserSize();
+
 				win[namespace].navLoad();
 				win[namespace].footerLoad();
 				win[namespace].status.scrollCheck.init();
@@ -318,6 +381,13 @@
 				win[namespace].nav.openDepth2(); // 2depth links evt on nav
 
 				win[namespace].acco.init();
+
+				$(doc).on('click', '.btn-top', function(){
+					$('body, html').animate({
+						scrollTop: 0
+					}, 200)
+				})
+
 
 			})
 			$(doc).on('scroll.'+namespace, function(){
