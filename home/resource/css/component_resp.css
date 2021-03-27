@@ -44,11 +44,12 @@
 	.header-area { height:70px; overflow:visible; }
 	.header-area .header-inner { height:70px; }
 	.header-area:after { top:68px; }
-	.header-area .gnb-area { display:block; float:none; position:fixed; padding:70px 0 20px; margin:0; top:0; left:-100%; background:#fff; width:100%; height:100%; transition:all ease-in-out .35s; }
+	.header-area .gnb-area { display:block; float:none; position:fixed; padding:70px 0 20px; margin:0; top:0; left:-100%; background:#fff; width:100%; height:100%; transition:all ease-in-out .35s; border-top:4px solid #4272d7 }
 	.header-area.open .gnb-area { left:0; }
 	.header-area.open:after { opacity:0; }
 	.header-area .logo { z-index:2; position:absolute; left:15px; top:50%; transform:translateY(-50%); margin:0; }
 	.header-area .btn-menu { z-index:2; display:block; position:absolute; top:19px; right:15px; }
+	.header-area.open { z-index:20;  }
 	.header-area.open .btn-menu:after,
 	.header-area.open .btn-menu:before,
 	.header-area.open .btn-menu span { background:#000; }
@@ -126,9 +127,9 @@
 	.app-list > li {margin:10px 5px; zoom:0.8}
 }
 @media (max-width:765px) {
-	.login-wrap { padding:25px 25px 50px; }
+	.login-wrap { padding:25px 20px 50px; }
 	.login-area { width:auto; height:auto; min-height:0; position:static; margin:0 auto; overflow:visible; }
-	.login-area .login-inner { position:relative; top:auto; left:auto; transform:none; width:100%; padding:40px 25px; }
+	.login-area .login-inner { position:relative; top:auto; left:auto; transform:none; width:100%; padding:40px 20px; }
 	.login-util .chk-item { float:none; width:100%; text-align:left; }
 	.login-util .links { float:none; width:100%; margin-top:10px; text-align:left; }
 	.login-tit { font-size:26px; }

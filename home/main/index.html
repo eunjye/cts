@@ -437,12 +437,14 @@
 							var $btn = $(this);
 
 							if ($wrap.hasClass('close')) {
+								$wrap.attr('data-close', 'false');
 								$wrap.removeClass('close');
 								$banners.slideDown(200, function(){
 
 								});
 								$btn.removeClass('close');
 							} else {
+								$wrap.attr('data-close', 'true');
 								$banners.slideUp(200, function(){
 									$wrap.addClass('close');
 								});

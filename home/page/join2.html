@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     
-                    <div class="form-area mgb-l">
+                    <div class="form-area">
                         <span class="lb-form"><label for="inpPW2">비밀번호 재확인</label></span>
                         <div class="form-item">
 					        <input type="password" class="inp" id="inpPW2">
@@ -60,19 +60,19 @@
                     
                     <div class="form-area">
                         <span class="lb-form">
-                            <label for="">이름</label>
+                            <label for="inpName">이름</label>
                             <span class="txt-require">*필수정보입니다</span>
                         </span>
                         <div class="form-item">
-					        <input type="text" class="inp" id="inpID">
+					        <input type="text" class="inp" id="inpName">
                         </div>
                     </div>
                     
                     <div class="form-area type-birth">
-                        <span class="lb-form"><label for="">생년월일</label></span>
+                        <span class="lb-form"><label for="inpBirth">생년월일</label></span>
                         <div class="form-item">
-					        <input type="tel" class="inp" id="inpID" placeholder="년(4자)">
-					        <select class="selectbox">
+					        <input type="tel" class="inp" id="inpYear" placeholder="년(4자)" title="년 선택">
+					        <select class="selectbox" title="월 선택" id="selMonth">
                                 <option hidden select>월</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -87,14 +87,14 @@
                                 <option>11</option>
                                 <option>12</option>
                             </select>
-					        <input type="tel" class="inp" id="inpID" placeholder="일">
+					        <input type="tel" class="inp" id="inpDate" placeholder="일" title="일 선택">
                         </div>
                     </div>
 
                     <div class="form-area">
-                        <span class="lb-form"><label for="">성별</label></span>
+                        <span class="lb-form"><label for="inpGender">성별</label></span>
                         <div class="form-item">
-					        <select class="selectbox">
+					        <select class="selectbox" title="inpGender">
                                 <option hidden select>선택</option>
                                 <option>남</option>
                                 <option>여</option>
@@ -104,19 +104,19 @@
 
                     <div class="form-area">
                         <span class="lb-form">
-                            <label for="">본인 확인 이메일</label>
+                            <label for="inpEmail">본인 확인 이메일</label>
                             <span class="sub">(선택)</span>
                         </span>
                         <div class="form-item">
-					        <input type="email" class="inp" id="inpID">
+					        <input type="email" class="inp" id="inpEmail">
                         </div>
                     </div>
 
                     <div class="form-area type-tel">
-                        <span class="lb-form"><label for="">휴대전화</label></span>
+                        <span class="lb-form"><label for="inpTel">휴대전화</label></span>
                         <div class="form-item">
                             <div class="form-inp">
-                                <select class="selectbox">
+                                <select class="selectbox" title="국번 선택">
                                     <option select>대한민국 +82</option>
                                     <option>대한민국 +82</option>
                                     <option>대한민국 +82</option>
@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-inp telnum">
                                 <span class="inp-area">
-                                    <input type="tel" class="inp" id="inpID" placeholder="전화번호 입력">
+                                    <input type="tel" class="inp" id="inpTel" placeholder="전화번호 입력" title="나머지 전화번호 입력">
                                     <span class="count">00:00</span>
                                 </span>
                                 <!-- 인증번호 받기 버튼 클릭 전 
@@ -140,7 +140,7 @@
                                 </span>
                             </div>
                             <div class="form-inp">
-                                <input type="tel" class="inp" id="inpID" placeholder="인증번호를 입력하세요" readonly>
+                                <input type="tel" class="inp" id="inpCode" placeholder="인증번호를 입력하세요" readonly title="인증번호를 입력하세요">
                             </div>
                         </div>
                     </div>
